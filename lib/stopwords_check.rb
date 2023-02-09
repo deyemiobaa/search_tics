@@ -1,21 +1,19 @@
-
-require 'json'
-
 module StopwordsCheck
-  def is_stop_word?(word)
-    stop_words_file = File.read("#{Rails.root}/lib/stop_words.json")
-    stop_words = JSON.parse(stop_words_file).sort
+  def end_with_stop_word?(query)
+    stop_words = File.read("#{Rails.root}/lib/stop_words.json")
+
+    word = query.downcase.strip.split(' ').last
 
     low = 0
-    high = stop_words.length
+    high = stop_words.length - 1
     while low <= high
-      mid = (low + (high - low) / 2).floor
+      mid = (low + high) / 2
       if stop_words[mid] == word
         return true
-      elsif stop_words[mid] > word
-        high = mid
-      else
+      elsif stop_words[mid] < word
         low = mid + 1
+      else
+        high = mid - 1
       end
     end
 
