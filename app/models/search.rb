@@ -15,7 +15,6 @@ class Search < ApplicationRecord
     if search
       if query.length > search.query.length
         search.update(query: query)
-        return search
       end
     else
       Search.create(query: query, user_id: user_id)
