@@ -78,3 +78,7 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
+
+gem "chartkick", "~> 5.0"
+
+gem "groupdate", "~> 6.2"
