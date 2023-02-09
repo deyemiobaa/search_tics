@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_09_100935) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
   create_table "searches", force: :cascade do |t|
@@ -19,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_100935) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["query"], name: "index_searches_on_query", opclass: :gin_trgm_ops, using: :gin
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
