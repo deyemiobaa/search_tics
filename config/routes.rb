@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root "devise/sessions#new"
+  root 'homepage#index'
 
-  authenticated :user do
-    root 'homepages#index', as: :authenticated_root
-  end
+  resources :searches, only: %i[ new create ]
 end

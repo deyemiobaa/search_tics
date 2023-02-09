@@ -13,8 +13,12 @@
 
   <body>
     <main class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if flash[:notice].present? %>
+        <p class="w-11/12 max-w-2xl p-5 mx-auto text-center text-green-600 bg-green-100 animate-fade-out notice alert"><%= notice %></p>
+      <% end %>
+      <% if flash[:alert].present? %>
+        <p class="w-11/12 max-w-2xl p-5 mx-auto text-center text-yellow-600 bg-yellow-100 animate-fade-out alert"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </main>
   </body>
