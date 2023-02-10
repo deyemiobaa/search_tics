@@ -1,24 +1,25 @@
-# README
+# Realtime Search with Analytics
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
 
-Things you may want to cover:
+- Ruby on Rails
+- PostgreSQL
 
-* Ruby version
+## Setup
 
-* System dependencies
+- clone the repo
+- `bundle install`
+- `rake db:create`
+- `rake db:migrate`
 
-* Configuration
+## Run
+- `bin/dev` to start the server
 
-* Database creation
+## Test
+Testing is done with rspec for request and models
+- `rspec` to run the tests
 
-* Database initialization
+## Seeds
+If you intend to start with some data, you can run `rake db:seed` to create some data. In the seed file you can change the number of records to be created, and also find the details of the admin user created.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Login with the admin user to see analytics.
