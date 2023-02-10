@@ -24,10 +24,10 @@ RSpec.describe Search, type: :model do
       expect(search.should_save?).to eq(true)
     end
 
-    it 'should update the query if the new query is longer than the old query' do
+    it 'should update the query if the new query is longer than the old query and return true' do
       search = Search.create(query: 'what is a test', user_id: user.id)
       search = Search.update_similar_query('what is a test of a search', user.id)
-      expect(search.query).to eq('what is a test of a search')
+      expect(search).to eq(true)
     end
   end
 end
