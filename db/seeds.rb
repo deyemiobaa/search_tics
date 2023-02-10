@@ -22,6 +22,11 @@ queries = [
   3.times do
     user.searches.create!(query: queries.sample, created_at: i.days.ago)
   end
+  puts "creating seed data"
 end
 
+puts "creating superuser"
+
 user = User.create!(email: 'superuser@mail.com', password: 'adminuser', password_confirmation: 'adminuser', admin: true)
+
+puts "All done!"
