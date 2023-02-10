@@ -3,5 +3,27 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
+queries = [
+  "What is the meaning of life?",
+  "What is the purpose of existence?",
+  "What is consciousness?",
+  "What is the definition of intelligence?",
+  "How did the universe begin?",
+  "What is the purpose of our education system?",
+  "What is the definition of happiness?",
+  "Is there such a thing as absolute truth?",
+  "What is the nature of reality?",
+  "What is the significance of dreams?",
+  "What is the meaning of success?",
+  "What is the role of money in our lives?",
+]
+
+8.downto(2) do |i|
+  user = User.create!(email: Faker::Internet.email, password: 'password', password_confirmation: 'password')
+  3.times do
+    user.searches.create!(query: queries.sample, created_at: i.days.ago)
+  end
+end
+
+user = User.create!(email: 'superuser@mail.com', password: 'adminuser', password_confirmation: 'adminuser', admin: true)')
