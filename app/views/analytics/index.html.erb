@@ -8,9 +8,9 @@
     <%= pie_chart @search_trends %>
   </div>
 
-  <div>
+  <div class="mb-4 overflow-x-auto">
     <h2 class="my-10 font-semibold text-center text-gray-700">Daily Search count</h2>
-    <%= line_chart @search_per_day %>
+    <%= area_chart @search_per_day, width: "500px" %>
   </div>
   
 
