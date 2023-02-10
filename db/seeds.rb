@@ -15,8 +15,6 @@ queries = [
   "Is there such a thing as absolute truth?",
   "What is the nature of reality?",
   "What is the significance of dreams?",
-  "What is the meaning of success?",
-  "What is the role of money in our lives?",
 ]
 
 8.downto(2) do |i|
@@ -26,4 +24,4 @@ queries = [
   end
 end
 
-user = User.create!(email: 'superuser@mail.com', password: 'adminuser', password_confirmation: 'adminuser', admin: true)')
+user = User.create!(email: 'superuser@mail.com', password: 'adminuser', password_confirmation: 'adminuser', admin: true)
