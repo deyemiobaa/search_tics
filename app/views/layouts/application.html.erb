@@ -13,6 +13,22 @@
 
   <body>
     <main class="container">
+    <% if user_signed_in? %>
+      <div class="flex justify-between">
+        <%= link_to 'Sign out', 
+          destroy_user_session_path, 
+          data: { turbo_method: :delete }, 
+          class: "rounded-lg py-2 px-3 bg-blue-600 text-white inline-block font-medium m-5"
+        %>
+        
+        <% if current_user.admin? %>
+          <%= link_to 'See Analytics', 
+            analytics_path, 
+            class: "rounded-lg py-2 px-3 bg-blue-600 text-white inline-block font-medium m-5"
+          %>
+        <% end %>
+      </div>
+    <% end %>
       <% if flash[:notice].present? %>
         <p class="w-11/12 max-w-2xl p-5 mx-auto text-center text-green-600 bg-green-100 animate-fade-out notice alert"><%= notice %></p>
       <% end %>

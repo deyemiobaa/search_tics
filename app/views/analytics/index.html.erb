@@ -1,17 +1,17 @@
 <div class="container flex flex-col items-center">
-  <h1 class="px-6 py-3 mb-0 font-semibold text-gray-700 bg-gray-200">
+  <h1 class="px-6 py-3 mb-0 text-2xl font-semibold text-gray-700">
     Analytics
   </h1>
 
   <div>
-    <h2 class="my-10 text-2xl font-semibold text-gray-700">Daily Search count</h2>
+    <h2 class="my-10 font-semibold text-center text-gray-700">Top Search Trends</h2>
+    <%= pie_chart @search_trends %>
+  </div>
+
+  <div>
+    <h2 class="my-10 font-semibold text-center text-gray-700">Daily Search count</h2>
     <%= line_chart @search_per_day %>
   </div>
   
-
-  <div>
-    <h2 class="my-10 text-2xl font-semibold text-gray-700">Top Search Trends</h2>
-    <%= pie_chart @search_trends %>
-  </div>
 
 </div>
